@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .container {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+            color: white;
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+            margin: 2rem auto 0;
+            max-width: 400px;
+            width: auto;
+            min-width: 280px;
+        }
+
+        .login-link {
+            color: #4d7aff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        .field-error {
+            display: none;
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        .field-error i {
+            display: flex;
+            align-items: center;
+        }
+        .field-error i span {
+            margin-left: 0.5rem;
+        }
+        .field-error.show {
+            display: block;
+        }
+        .field-error:hover {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center m-3">Register New Account</h2>
+
+        <div class="mb-3">
+            <label class="form-label" for="FullName">Full Name:</label>
+            <input class="form-control" type="text" id="FullName" placeholder="Enter your full name">
+            <div class="field-error" id="err-name">
+                <i class="fas fa-exclamation-circle me-1"></i>
+                <span>Please enter your full name.</span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="Email">Email:</label>
+            <input class="form-control" type="email" id="Email" placeholder="Enter your email">
+            <div class="field-error" id="err-email">
+                <i class="fas fa-exclamation-circle me-1"></i>
+                <span>Please enter a valid email address.</span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="ContactNo">Contact No:</label>
+            <input class="form-control" type="text" id="ContactNo" placeholder="Enter your contact number">
+            <div class="field-error" id="err-contact">
+                <i class="fas fa-exclamation-circle me-1"></i>
+                <span>Please enter a valid contact number.</span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="Password">Password:</label>
+            <input class="form-control" type="password" id="Password" placeholder="New Password">
+            <div class="field-error" id="err-pwd">
+                <i class="fas fa-exclamation-circle me-1"></i>
+                <span>Password must be at least 8 characters.</span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="ConfirmPassword">Confirm Password:</label>
+            <input class="form-control" type="password" id="ConfirmPassword" placeholder="Confirm Password">
+            <div class="field-error" id="err-confirm-pwd">
+                <i class="fas fa-exclamation-circle me-1"></i>
+                <span>Passwords do not match.</span>
+            </div>
+        </div>
+
+        <button class="btn-register" id="registerBtn" type="button">
+            <span class="spinner" id="spinner"></span>
+            <i class="fas fa-user-plus" id="btnIcon"></i>
+            <span id="btnText" class="ms-2">Register</span>
+        </button>
+    </div>
+
+    <div class="d-flex justify-content-between mt-3">
+        <p class="mb-0">Already have an account?
+            <a href="Login.html" class="login-link"> Login here</a>
+        </p>
+    </div>
+</body>
+</html>
