@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ff6347;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 0.5em 0;
+        }
+        nav a {
+            color: white;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .hero {
+            background: url('https://via.placeholder.com/1500x500?text=Delicious+Food') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .hero .btn {
+            background-color: #ff6347;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+        .hero .btn:hover {
+            background-color: #e55337;
+        }
+        .menu-section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .menu-section h2 {
+            text-align: center;
+            color: #ff6347;
+            margin-bottom: 20px;
+        }
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .menu-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 30%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .menu-item img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .menu-item h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .menu-item p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .menu-item .price {
+            font-weight: bold;
+            color: #ff6347;
+            font-size: 1.1em;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Delicious Delivery</h1>
+        <p>Your favorite food, delivered fast!</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="Login.html">Login/Register</a>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Hungry?</h1>
+            <p>Order your favorite food now!</p>
+            <a href="#" class="btn">View Menu</a>
+        </section>
+
+        <section class="menu-section">
+            <h2>Popular Dishes</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x150?text=Burger" alt="Burger">
+                    <h3>Classic Burger</h3>
+                    <p>Juicy beef patty, fresh vegetables, and special sauce.</p>
+                    <span class="price">¥ 35.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x150?text=Pizza" alt="Pizza">
+                    <h3>Italian Pizza</h3>
+                    <p>Crispy crust, rich cheese, and abundant toppings.</p>
+                    <span class="price">¥ 68.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x150?text=Pasta" alt="Pasta">
+                    <h3>Creamy Pasta</h3>
+                    <p>Rich creamy sauce, paired with al dente pasta.</p>
+                    <span class="price">¥ 45.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x150?text=Salad" alt="Salad">
+                    <h3>Healthy Salad</h3>
+                    <p>Fresh seasonal vegetables, grilled chicken breast, and low-fat dressing.</p>
+                    <span class="price">¥ 30.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x150?text=Sushi" alt="Sushi">
+                    <h3>Selected Sushi</h3>
+                    <p>Fresh seafood, handmade, excellent taste.</p>
+                    <span class="price">¥ 88.00</span>
+                </div>
+                <div class="menu-item">
+                    <img src="https://via.placeholder.com/300x150?text=Taco" alt="Taco">
+                    <h3>Mexican Taco</h3>
+                    <p>Spicy meat filling, paired with fresh salsa.</p>
+                    <span class="price">¥ 40.00</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Delicious Delivery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
