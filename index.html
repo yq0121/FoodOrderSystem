@@ -4,196 +4,481 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Order Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
         }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: linear-gradient(135deg, #a8edea, #fed6e3); 
+            min-height: 100vh; 
+            color: #333; 
+        }
+
         header {
-            background-color: #ff6347;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        nav {
+            background: linear-gradient(90deg, #43cea2, #185a9d);
+            padding: 1rem 2rem;
             display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 0.5em 0;
-        }
-        nav a {
-            color: white;
-            padding: 0.5em 1em;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        nav a:hover {
-            background-color: #575757;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px 0;
-        }
-        .hero {
-            background: url('https://via.placeholder.com/1500x500?text=Delicious+Food') no-repeat center center/cover;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            margin-bottom: 20px;
+            justify-content: space-between;
+            box-shadow: 0 2px 12px rgba(67,206,162,0.3);
         }
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+        .brand { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.6rem; 
+            color: white; 
+            text-decoration: none; 
         }
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        .brand-icon { 
+            font-size: 1.6rem; 
         }
-        .hero .btn {
-            background-color: #ff6347;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
+        .brand-name { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
         }
-        .hero .btn:hover {
-            background-color: #e55337;
+        .brand-tagline { 
+            font-size: 0.75rem; 
+            opacity: 0.85; 
         }
-        .menu-section {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        nav { 
+            display: flex; 
+            gap: 0.25rem; 
+            align-items: center; 
+            flex-wrap: wrap; 
         }
-        .menu-section h2 {
+        nav a { 
+            color: rgba(255,255,255,0.9); 
+            padding: 0.4rem 0.9rem; 
+            text-decoration: none; 
+            border-radius: 2rem; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            transition: background 0.2s; 
+        }
+        nav a:hover { 
+            background: rgba(255,255,255,0.15); 
+        }
+        .nav-login { 
+            background: white !important; 
+            color: #43cea2 !important; 
+            font-weight: 600 !important; 
+        }
+        .nav-login:hover { 
+            background: #f0fdf9 !important; 
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            padding: 5rem 2rem;
             text-align: center;
-            color: #ff6347;
-            margin-bottom: 20px;
-        }
-        .menu-items {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .menu-item {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin: 10px;
-            padding: 15px;
-            width: 30%;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        .menu-item img {
-            max-width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .menu-item h3 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-        .menu-item p {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        .menu-item .price {
-            font-weight: bold;
-            color: #ff6347;
-            font-size: 1.1em;
-        }
-        footer {
-            background-color: #333;
             color: white;
-            text-align: center;
-            padding: 1em 0;
             position: relative;
-            bottom: 0;
-            width: 100%;
+            overflow: hidden;
+        }
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            inset: 0; 
+            background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1400&q=60') center/cover; 
+            opacity: 0.15; 
+        }
+        .hero-content { 
+            position: relative; 
+            z-index: 1; 
+            max-width: 600px; 
+            margin: auto; 
+        }
+        .hero-badge { 
+            display: inline-block; 
+            background: rgba(255,255,255,0.2); 
+            border: 1px solid rgba(255,255,255,0.3); 
+            color: white; 
+            padding: 0.3rem 1rem; 
+            border-radius: 2rem; 
+            font-size: 0.82rem; 
+            font-weight: 600; 
+            margin-bottom: 1rem; 
+        }
+        .hero h1 { 
+            font-size: clamp(2rem, 5vw, 3.2rem); 
+            font-weight: 800; 
+            line-height: 1.15; 
+            margin-bottom: 1rem; 
+        }
+        .hero p { 
+            font-size: 1.1rem; 
+            opacity: 0.92; 
+            margin-bottom: 2rem; 
+        }
+        .hero-actions { 
+            display: flex; 
+            gap: 1rem; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+        .btn-hero-primary { 
+            background: white; 
+            color: #43cea2; 
+            padding: 0.85rem 2rem; 
+            border-radius: 3rem; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 1rem; 
+            transition: transform 0.2s, box-shadow 0.2s; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+        }
+        .btn-hero-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 28px rgba(0,0,0,0.25); 
+            color: #2aaa85; 
+        }
+        .btn-hero-secondary { 
+            background: rgba(255,255,255,0.15); 
+            border: 2px solid rgba(255,255,255,0.6); 
+            color: white; 
+            padding: 0.85rem 2rem; 
+            border-radius: 3rem; 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: background 0.2s; 
+        }
+        .btn-hero-secondary:hover { 
+            background: rgba(255,255,255,0.25); 
+            color: white; 
+        }
+ 
+        .stats-bar { 
+            background: white; 
+            display: flex; 
+            justify-content: center; 
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07); 
+        }
+        .stat { 
+            padding: 1.2rem 2.5rem; 
+            text-align: center; 
+            border-right: 1px solid #f0ece6; 
+        }
+        .stat:last-child { 
+            border-right: none; 
+        }
+        .stat-num { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: #43cea2; 
+        }
+        .stat-label { 
+            font-size: 0.78rem; 
+            color: #888; 
+            font-weight: 500; 
+            margin-top: 0.1rem; 
+        }
+ 
+        .section { 
+            padding: 4rem 2rem; 
+            max-width: 1100px; 
+            margin: auto; 
+        }
+        .section-header { 
+            text-align: center; 
+            margin-bottom: 2.5rem; 
+        }
+        .section-header h2 { 
+            font-size: 2rem; 
+            font-weight: 800; 
+            color: #1a1a1a; 
+        }
+        .section-header p { 
+            color: #888; 
+            margin-top: 0.4rem; 
+        }
+        .section-label { 
+            display: inline-block; 
+            background: rgba(168,237,234,0.4); 
+            color: #185a9d; 
+            padding: 0.25rem 0.8rem; 
+            border-radius: 2rem; 
+            font-size: 0.78rem; 
+            font-weight: 700; 
+            letter-spacing: 0.5px; 
+            margin-bottom: 0.6rem; 
+        }
+ 
+        .category-filter { 
+            display: flex; 
+            gap: 0.5rem; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-bottom: 2rem; 
+        }
+        .cat-btn { 
+            background: white; 
+            border: 1.5px solid #c8e8e6; 
+            color: #555; 
+            padding: 0.4rem 1.1rem; 
+            border-radius: 2rem; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            cursor: pointer; 
+            transition: all 0.2s; 
+        }
+        .cat-btn:hover, .cat-btn.active {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            border-color: transparent; 
+            color: white; 
+        }
+ 
+        .menu-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 1.5rem; 
+        }
+        .menu-card { 
+            background: white; 
+            border-radius: 1rem; 
+            overflow: hidden; 
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07); 
+            transition: transform 0.25s, box-shadow 0.25s; 
+            position: relative; 
+        }
+        .menu-card:hover { 
+            transform: translateY(-6px); 
+            box-shadow: 0 12px 32px rgba(67,206,162,0.2); 
+        }
+        .card-badge { 
+            position: absolute; 
+            top: 0.75rem; left: 0.75rem; 
+            background: linear-gradient(135deg, #43cea2, #185a9d); 
+            color: white; 
+            font-size: 0.72rem; 
+            font-weight: 700; 
+            padding: 0.2rem 0.65rem; 
+            border-radius: 2rem; 
+            z-index: 2; 
+        }
+        .card-img-wrap { 
+            height: 175px; 
+            overflow: hidden; 
+        }
+        .card-img-wrap img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.4s; 
+        }
+        .menu-card:hover .card-img-wrap img { 
+            transform: scale(1.06); 
+        }
+        .card-body { 
+            padding: 1rem 1.1rem 1.2rem; 
+        }
+        .card-meta { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.4rem; 
+            margin-bottom: 0.4rem; 
+        }
+        .card-category { 
+            font-size: 0.74rem; 
+            color: #43cea2; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+        }
+        .card-rating { 
+            margin-left: auto; 
+            font-size: 0.8rem; 
+            color: #f5a623; 
+            font-weight: 600; 
+        }
+        .card-title { 
+            font-size: 1.05rem; 
+            font-weight: 700; 
+            color: #1a1a1a; 
+            margin-bottom: 0.3rem; 
+        }
+        .card-desc { 
+            font-size: 0.84rem; 
+            color: #888; 
+            line-height: 1.5; 
+            margin-bottom: 0.8rem; 
+        }
+        .card-footer { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
+        .card-price { 
+            font-size: 1.2rem; 
+            font-weight: 800; 
+            color: #185a9d; 
+        }
+        .card-price span { 
+            font-size: 0.78rem; 
+            color: #bbb; 
+            font-weight: 400; 
+        }
+        .btn-add { 
+            background: linear-gradient(135deg, #43cea2, #185a9d); 
+            color: white; 
+            border: none; 
+            padding: 0.45rem 1rem; 
+            border-radius: 2rem; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.3rem; 
+            transition: opacity 0.2s, transform 0.15s; 
+        }
+        .btn-add:hover { 
+            opacity: 0.85; 
+            transform: scale(1.05); 
+        }
+        .btn-add svg { 
+            width: 14px;
+            height: 14px; 
+        }
+ 
+        footer { 
+            background: #185a9d; 
+            color: rgba(255,255,255,0.75); 
+            text-align: center; 
+            padding: 2rem; 
+            font-size: 0.88rem; 
+            margin-top: 2rem; 
+        }
+        footer a { 
+            color: #a8edea; 
+            text-decoration: none; 
+        }
+        footer span { 
+            color: #a8edea; 
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Delicious Delivery</h1>
-        <p>Your favorite food, delivered fast!</p>
+        <a href="#" class="brand">
+            <span class="brand-icon">🍽️</span>
+            <div><div class="brand-name">Delicious Delivery</div><div class="brand-tagline">Fast · Fresh · Delicious</div></div>
+        </a>
+        <nav>
+            <a href="#">Home</a><a href="#">Menu</a><a href="#">About Us</a><a href="#">Contact</a>
+            <a href="Login.html" class="nav-login">Login / Register</a>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Menu</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
-        <a href="Login.html">Login/Register</a>
-    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🚀 30-Min Guaranteed Delivery</div>
+            <h1>Hungry? Food is Just a Tap Away</h1>
+            <p>Order your favourite dishes from the best local restaurants — delivered fresh to your door.</p>
+            <div class="hero-actions">
+                <a href="#menu" class="btn-hero-primary">🍴 Browse Menu</a>
+                <a href="Register.html" class="btn-hero-secondary">Sign Up Free</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="container">
-        <section class="hero">
-            <h1>Hungry?</h1>
-            <p>Order your favorite food now!</p>
-            <a href="#" class="btn">View Menu</a>
-        </section>
+    <div class="stats-bar">
+        <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Menu Items</div></div>
+        <div class="stat"><div class="stat-num">30 min</div><div class="stat-label">Avg Delivery</div></div>
+        <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Customer Rating</div></div>
+        <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Happy Customers</div></div>
+    </div>
 
-        <section class="menu-section">
+    <div class="section" id="menu">
+        <div class="section-header">
+            <div class="section-label">OUR MENU</div>
             <h2>Popular Dishes</h2>
-            <div class="menu-items">
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150?text=Burger" alt="Burger">
-                    <h3>Classic Burger</h3>
-                    <p>Juicy beef patty, fresh vegetables, and special sauce.</p>
-                    <span class="price">¥ 35.00</span>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150?text=Pizza" alt="Pizza">
-                    <h3>Italian Pizza</h3>
-                    <p>Crispy crust, rich cheese, and abundant toppings.</p>
-                    <span class="price">¥ 68.00</span>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150?text=Pasta" alt="Pasta">
-                    <h3>Creamy Pasta</h3>
-                    <p>Rich creamy sauce, paired with al dente pasta.</p>
-                    <span class="price">¥ 45.00</span>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150?text=Salad" alt="Salad">
-                    <h3>Healthy Salad</h3>
-                    <p>Fresh seasonal vegetables, grilled chicken breast, and low-fat dressing.</p>
-                    <span class="price">¥ 30.00</span>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150?text=Sushi" alt="Sushi">
-                    <h3>Selected Sushi</h3>
-                    <p>Fresh seafood, handmade, excellent taste.</p>
-                    <span class="price">¥ 88.00</span>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150?text=Taco" alt="Taco">
-                    <h3>Mexican Taco</h3>
-                    <p>Spicy meat filling, paired with fresh salsa.</p>
-                    <span class="price">¥ 40.00</span>
+            <p>Handpicked favourites loved by thousands of customers</p>
+        </div>
+        <div class="category-filter">
+            <button class="cat-btn active">All</button>
+            <button class="cat-btn">🍔 Burgers</button><button class="cat-btn">🍕 Pizza</button>
+            <button class="cat-btn">🍜 Pasta</button><button class="cat-btn">🥗 Healthy</button>
+            <button class="cat-btn">🍣 Sushi</button><button class="cat-btn">🌮 Mexican</button>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="card-badge">🔥 Best Seller</div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=70" alt="Burger"></div>
+                <div class="card-body">
+                    <div class="card-meta"><span class="card-category">Burger</span><span class="card-rating">⭐ 4.8</span></div>
+                    <div class="card-title">Classic Smash Burger</div>
+                    <div class="card-desc">Juicy double beef patty, crispy bacon, fresh lettuce & our signature sauce.</div>
+                    <div class="card-footer"><div class="card-price">¥ 35 <span>/ serving</span></div><button class="btn-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add</button></div>
                 </div>
             </div>
-        </section>
+            <div class="menu-card">
+                <div class="card-badge">🆕 New</div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=70" alt="Pizza"></div>
+                <div class="card-body">
+                    <div class="card-meta"><span class="card-category">Pizza</span><span class="card-rating">⭐ 4.7</span></div>
+                    <div class="card-title">Italian Margherita</div>
+                    <div class="card-desc">Hand-tossed crust, San Marzano tomato sauce, fresh buffalo mozzarella.</div>
+                    <div class="card-footer"><div class="card-price">¥ 68 <span>/ serving</span></div><button class="btn-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add</button></div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=400&q=70" alt="Pasta"></div>
+                <div class="card-body">
+                    <div class="card-meta"><span class="card-category">Pasta</span><span class="card-rating">⭐ 4.6</span></div>
+                    <div class="card-title">Creamy Carbonara</div>
+                    <div class="card-desc">Al dente spaghetti tossed in silky egg & parmesan sauce with crispy pancetta.</div>
+                    <div class="card-footer"><div class="card-price">¥ 45 <span>/ serving</span></div><button class="btn-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add</button></div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="card-badge">🌿 Healthy</div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=70" alt="Salad"></div>
+                <div class="card-body">
+                    <div class="card-meta"><span class="card-category">Salad</span><span class="card-rating">⭐ 4.5</span></div>
+                    <div class="card-title">Grilled Chicken Salad</div>
+                    <div class="card-desc">Fresh seasonal greens, grilled chicken breast, avocado & low-fat lemon dressing.</div>
+                    <div class="card-footer"><div class="card-price">¥ 30 <span>/ serving</span></div><button class="btn-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add</button></div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="card-badge">🔥 Best Seller</div>
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=70" alt="Sushi"></div>
+                <div class="card-body">
+                    <div class="card-meta"><span class="card-category">Sushi</span><span class="card-rating">⭐ 4.9</span></div>
+                    <div class="card-title">Chef's Sushi Platter</div>
+                    <div class="card-desc">12-piece selection of premium nigiri and maki rolls with wasabi & pickled ginger.</div>
+                    <div class="card-footer"><div class="card-price">¥ 88 <span>/ serving</span></div><button class="btn-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add</button></div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="card-img-wrap"><img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=400&q=70" alt="Taco"></div>
+                <div class="card-body">
+                    <div class="card-meta"><span class="card-category">Mexican</span><span class="card-rating">⭐ 4.6</span></div>
+                    <div class="card-title">Street Tacos (3pc)</div>
+                    <div class="card-desc">Spiced beef & pork filling, handmade tortillas, fresh pico de gallo & guacamole.</div>
+                    <div class="card-footer"><div class="card-price">¥ 40 <span>/ serving</span></div><button class="btn-add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add</button></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Delicious Delivery. All rights reserved.</p>
+        <p>© 2026 <span>Delicious Delivery</span>. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a></p>
     </footer>
+    <script>
+        document.querySelectorAll('.cat-btn').forEach(btn => {
+            btn.addEventListener('click', () => { document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); });
+        });
+        document.querySelectorAll('.btn-add').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.textContent = '✓ Added'; btn.style.background = '#27ae60';
+                setTimeout(() => { btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add`; btn.style.background = ''; }, 1500);
+            });
+        });
+    </script>
 </body>
 </html>
