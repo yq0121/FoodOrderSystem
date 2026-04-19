@@ -285,7 +285,7 @@
             const payload = JSON.parse(decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join('')));
             localStorage.setItem('user', JSON.stringify({ name: payload.name, email: payload.email, picture: payload.picture }));
             alert('Welcome, ' + payload.name + '!');
-            window.location.href = 'index.html';
+            window.location.href = 'Home.html';
         }
 
         window.onload = function () {
@@ -321,7 +321,11 @@
                 if (!password) { 
                     errPwd.classList.add('show'); pi.classList.add('is-invalid'); valid = false; 
                 }
-                if (valid) window.location.href = 'index.html';
+                if (valid) {
+                    // Set a dummy user for non-google login
+                    localStorage.setItem('user', JSON.stringify({ name: username, email: username + '@example.com' }));
+                    window.location.href = 'Home.html';
+                }
             });
         };
     </script>

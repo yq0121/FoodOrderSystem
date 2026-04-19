@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home - FoodOrder</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            --bg-gradient: linear-gradient(135deg, #a8edea, #fed6e3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            background: var(--primary-gradient);
+            box-shadow: 0 2px 12px rgba(67,206,162,0.3);
+            padding: 0.8rem 2rem;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 800;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: white;
+            padding: 0.3rem 1rem;
+            background: rgba(255,255,255,0.15);
+            border-radius: 2rem;
+            text-decoration: none;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .welcome-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .welcome-text h1 {
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .welcome-text p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .action-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(67,206,162,0.2);
+        }
+
+        .action-icon {
+            font-size: 2.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .action-card h3 {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-card p {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .logout-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .logout-btn:hover {
+            background: #ff6b81;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-utensils"></i> FoodOrder
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">My Orders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Favorites</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="user-profile">
+                        <img id="userAvatar" src="https://via.placeholder.com/32" alt="Avatar" class="user-avatar">
+                        <span id="userName">User</span>
+                    </div>
+                    <button class="logout-btn" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="welcome-card">
+            <div class="welcome-text">
+                <h1>Welcome back, <span id="welcomeName">User</span>! 👋</h1>
+                <p>Ready to discover some delicious food today?</p>
+            </div>
+            <a href="index.html" class="btn btn-primary rounded-pill px-4 py-2" style="background: var(--primary-gradient); border: none;">
+                Browse Menu
+            </a>
+        </div>
+
+        <div class="quick-actions">
+            <a href="#" class="action-card">
+                <div class="action-icon"><i class="fas fa-history"></i></div>
+                <h3>Order History</h3>
+                <p>View and reorder your past favorites</p>
+            </a>
+            <a href="#" class="action-card">
+                <div class="action-icon"><i class="fas fa-user-circle"></i></div>
+                <h3>Profile Settings</h3>
+                <p>Update your personal information</p>
+            </a>
+            <a href="#" class="action-card">
+                <div class="action-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>My Addresses</h3>
+                <p>Manage your delivery locations</p>
+            </a>
+            <a href="#" class="action-card">
+                <div class="action-icon"><i class="fas fa-wallet"></i></div>
+                <h3>Payments</h3>
+                <p>Manage your cards and credits</p>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = localStorage.getItem('user');
+            
+            if (!userData) {
+                // No user logged in, redirect to login page
+                window.location.href = 'Login.html';
+                return;
+            }
+
+            const user = JSON.parse(userData);
+            
+            // Update UI with user info
+            document.getElementById('userName').textContent = user.name || 'User';
+            document.getElementById('welcomeName').textContent = user.name || 'User';
+            
+            if (user.picture) {
+                document.getElementById('userAvatar').src = user.picture;
+            }
+
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                localStorage.removeItem('user');
+                window.location.href = 'Login.html';
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

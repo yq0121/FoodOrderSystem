@@ -367,11 +367,24 @@
             <span class="brand-icon">🍽️</span>
             <div><div class="brand-name">Delicious Delivery</div><div class="brand-tagline">Fast · Fresh · Delicious</div></div>
         </a>
-        <nav>
+        <nav id="navbar">
             <a href="#">Home</a><a href="#">Menu</a><a href="#">About Us</a><a href="#">Contact</a>
-            <a href="Login.html" class="nav-login">Login / Register</a>
+            <a href="Login.html" id="loginLink" class="nav-login">Login / Register</a>
+            <a href="Home.html" id="userHomeLink" class="nav-login" style="display: none;">My Account</a>
         </nav>
     </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = localStorage.getItem('user');
+            if (userData) {
+                document.getElementById('loginLink').style.display = 'none';
+                document.getElementById('userHomeLink').style.display = 'inline-block';
+                const user = JSON.parse(userData);
+                document.getElementById('userHomeLink').textContent = 'Hi, ' + (user.name || 'User');
+            }
+        });
+    </script>
 
     <section class="hero">
         <div class="hero-content">

@@ -341,7 +341,7 @@
             const payload = JSON.parse(decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join('')));
             localStorage.setItem('user', JSON.stringify({ name: payload.name, email: payload.email, picture: payload.picture }));
             alert('Welcome, ' + payload.name + '!');
-            window.location.href = 'index.html';
+            window.location.href = 'Home.html';
         }
 
         window.onload = function () {
@@ -447,8 +447,9 @@
                     }
                 });
                 if (valid) { 
+                    localStorage.setItem('user', JSON.stringify({ name: name, email: email }));
                     alert('Registration successful! Welcome 🎉'); 
-                    window.location.href = 'index.html'; 
+                    window.location.href = 'Home.html'; 
                 }
             });
         };
